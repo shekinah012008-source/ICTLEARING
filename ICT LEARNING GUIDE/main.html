@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="image/Untitled_design__3_-removebg-preview_2_95(1)(1).png" type="image icon">
+<title>ICT Learning Guide</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="main.css" />
+
+<style>
+/* --- PROGRESS BAR STYLE --- */
+.progress-container {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    width: 180px;
+    background: #ddd;
+    height: 18px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 4px rgba(0,0,0,0.3);
+    z-index: 1000;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: #4CAF50;
+    transition: width 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+/* --- TOP RIGHT PROFILE AREA --- */
+.top-right {
+    position: fixed;
+    top: 10px;
+    right: 220px; 
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 1001;
+}
+
+/* PROFILE PICTURE */
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #333;
+}
+
+/* PROFILE BUTTON */
+.profile-btn {
+    padding: 6px 14px;
+    background: #0d6efd;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.profile-btn:hover {
+    background: #094db8;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- TOP RIGHT AREA -->
+<div class="top-right">
+    <img src="Deafult PFP _ @davy3k.jpg" class="profile-pic" alt="Profile Picture">
+    <a href="prof.html"><button class="profile-btn" id="profileBtn" >Profile</button></a>
+</div>
+
+<!-- TOP-RIGHT PROGRESS BAR -->
+<div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+</div>
+
+<h1>ICT STUDENTS LEARNING GUIDE</h1>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+        <!-- Grade 11 -->
+        <div class="dropdown">
+            <button class="dropdown-btn">Grade 11 ▼</button>
+            <div class="dropdown-content">
+
+                <!-- CP1 Dropdown -->
+                <div class="dropdown">
+                    <button class="dropdown-btn">CP1 ▼</button>
+                    <div class="dropdown-content">
+                        <button class="side-btn topic-btn" data-lesson="LESSON 1">LESSON 1</button>
+<button class="side-btn topic-btn" data-lesson="LESSON 2">LESSON 2</button>
+<button class="side-btn topic-btn" data-lesson="LESSON 3">LESSON 3</button>
+<button class="side-btn topic-btn" data-lesson="ASSESMENT">ASSESMENT</button>
+
+                    </div>
+                </div>
+
+                <!-- CP2 Dropdown -->
+                <div class="dropdown">
+                    <button class="dropdown-btn">CP2 ▼</button>
+                    <div class="dropdown-content">
+                        <button class="side-btn topic-btn" data-lesson="CP2 LESSON 1">LESSON 1</button>
+<button class="side-btn topic-btn" data-lesson="CP2 LESSON 2">LESSON 2</button>
+<button class="side-btn topic-btn" data-lesson="CP2 LESSON 3">LESSON 3</button>
+<button class="side-btn topic-btn" data-lesson="CP2 ASSESMENT">ASSESMENT</button>
+
+                    </div>
+                </div>
+
+                <!-- CP3 Dropdown -->
+                <div class="dropdown">
+                    <button class="dropdown-btn">CP3 ▼</button>
+                    <div class="dropdown-content">
+                        <button class="side-btn topic-btn" data-lesson="CP3 LESSON 1">LESSON 1</button>
+<button class="side-btn topic-btn" data-lesson="CP3 LESSON 2">LESSON 2</button>
+<button class="side-btn topic-btn" data-lesson="CP3 LESSON 3">LESSON 3</button>
+<button class="side-btn topic-btn" data-lesson="CP3 ASSESMENT">ASSESMENT</button>
+
+                    </div>
+                </div>
+
+                <!-- CP4 Dropdown -->
+                <div class="dropdown">
+                    <button class="dropdown-btn">CP4 ▼</button>
+                    <div class="dropdown-content">
+                       <button class="side-btn topic-btn" data-lesson="CP4 LESSON 1">LESSON 1</button>
+<button class="side-btn topic-btn" data-lesson="CP4 LESSON 2">LESSON 2</button>
+<button class="side-btn topic-btn" data-lesson="CP4 LESSON 3">LESSON 3</button>
+<button class="side-btn topic-btn" data-lesson="CP4 ASSESMENT">ASSESMENT</button>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Grade 12 -->
+        <div class="dropdown">
+            <button class="dropdown-btn">Grade 12 ▼</button>
+            <div class="dropdown-content">
+
+                <!-- Animation 1 Dropdown -->
+                <div class="dropdown">
+                    <button class="dropdown-btn">Animation 1 ▼</button>
+                    <div class="dropdown-content">
+                        <button class="side-btn topic-btn" data-lesson="AN1 LESSON 1">LESSON 1</button>
+<button class="side-btn topic-btn" data-lesson="AN1 LESSON 2">LESSON 2</button>
+<button class="side-btn topic-btn" data-lesson="AN1 LESSON 3">LESSON 3</button>
+<button class="side-btn topic-btn" data-lesson="AN1 ASSESMENT">ASSESMENT</button>
+
+                    </div>
+                </div>
+
+                <!-- Animation 2 Dropdown -->
+                <div class="dropdown">
+                    <button class="dropdown-btn">Animation 2 ▼</button>
+                    <div class="dropdown-content">
+                       <button class="side-btn topic-btn" data-lesson="AN2 LESSON 1">LESSON 1</button>
+<button class="side-btn topic-btn" data-lesson="AN2 LESSON 2">LESSON 2</button>
+<button class="side-btn topic-btn" data-lesson="AN2 LESSON 3">LESSON 3</button>
+<button class="side-btn topic-btn" data-lesson="AN2 ASSESMENT">ASSESMENT</button>
+                    </div>
+                </div>
+
+                <!-- Animation 3 Dropdown -->
+                <div class="dropdown">
+                    <button class="dropdown-btn">Animation 3 ▼</button>
+                    <div class="dropdown-content">
+                        <button class="side-btn topic-btn" data-lesson="AN3 LESSON 1">LESSON 1</button>
+<button class="side-btn topic-btn" data-lesson="AN3 LESSON 2">LESSON 2</button>
+<button class="side-btn topic-btn" data-lesson="AN3 LESSON 3">LESSON 3</button>
+<button class="side-btn topic-btn" data-lesson="AN3 ASSESMENT">ASSESMENT</button>
+                    </div>
+                </div>
+
+                <!-- Animation 4 Dropdown -->
+                <div class="dropdown">
+                    <button class="dropdown-btn">Animation 4 ▼</button>
+                    <div class="dropdown-content">
+                        <button class="side-btn topic-btn" data-lesson="AN4 LESSON 1">LESSON 1</button>
+<button class="side-btn topic-btn" data-lesson="AN4 LESSON 2">LESSON 2</button>
+<button class="side-btn topic-btn" data-lesson="AN4 LESSON 3">LESSON 3</button>
+<button class="side-btn topic-btn" data-lesson="AN4 ASSESMENT">ASSESMENT</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- POPUP -->
+    <div class="search-panel">
+    <div id="popup" class="popup-inside">
+        <h3 id="popup-title"></h3>
+
+        <!-- WEEK BUTTONS -->
+        <div class="week-buttons">
+            <button class="week-btn" data-week="1">Week 1</button>
+            <button class="week-btn" data-week="2">Week 2</button>
+            <button class="week-btn" data-week="3">Week 3</button>
+        </div>
+
+        <!-- CONTENT THAT SHOWS WHEN YOU PRESS WEEK BUTTON -->
+        <div id="week-content" class="week-content"></div>
+        <div id="assessment-area" style="display:none;">
+            <h4>Assessment (Answer all correctly)</h4>
+            <div id="assessment-questions"></div>
+            <button id="submitAssessment">Submit Assessment</button>
+            <p id="assessment-result"></p>
+        </div>
+
+        <button id="close-popup" class="close-btn">Close</button>
+    </div>
+</div>
+    <!-- LOGO -->
+    <div class="logo-area">
+        <img src="image/Untitled_design__3_-removebg-preview_2_95(1)(1).png">
+    </div>
+
+</div>
+
+<script>
+// Toggle ALL dropdowns
+document.querySelectorAll(".dropdown-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+        const menu = btn.nextElementSibling;
+        menu.style.display = menu.style.display === "block" ? "none" : "block";
+    });
+});
+
+// POPUP SCRIPT
+const popup = document.getElementById("popup");
+const popupTitle = document.getElementById("popup-title");
+const popupContent = document.getElementById("week-content");
+const closeBtn = document.getElementById("close-popup");
+
+// PROGRESS BAR SCRIPT — NAMESPACED BY USER
+const loggedInUser = localStorage.getItem('loggedInUser') || 'defaultUser';
+const userProgressKey = (key) => `${key}_${loggedInUser}`;
+
+let completedAssessments = new Set();
+// find only topic buttons that are assessments
+const assessmentBtns = Array.from(document.querySelectorAll('.topic-btn')).filter(b => {
+    const d = b.getAttribute('data-lesson') || '';
+    return d.includes('ASSESMENT');
+});
+const TOTAL_ASSESSMENTS = assessmentBtns.length;
+const progressBar = document.getElementById("progressBar");
+
+// load persisted progress and answers (user-specific)
+try {
+    const saved = JSON.parse(localStorage.getItem(userProgressKey('completedAssessments')) || '[]');
+    saved.forEach(k => completedAssessments.add(k));
+} catch (e) {}
+try {
+    const savedUA = JSON.parse(localStorage.getItem(userProgressKey('userAnswers')) || '{}');
+    Object.assign(userAnswers, savedUA);
+} catch (e) {}
+// persist total assessments count for profile page
+try { localStorage.setItem(userProgressKey('totalAssessments'), String(TOTAL_ASSESSMENTS)); } catch (e) {}
+
+function updateProgress() {
+    let percent = 0;
+    if (TOTAL_ASSESSMENTS > 0) {
+        percent = (completedAssessments.size / TOTAL_ASSESSMENTS) * 100;
+    }
+    if (percent > 100) percent = 100;
+    const rounded = Math.round(percent);
+    progressBar.style.width = rounded + "%";
+    progressBar.textContent = rounded + "%";
+    progressBar.setAttribute('aria-valuenow', String(rounded));
+}
+
+document.querySelectorAll(".topic-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+
+        // Show popup
+        popupTitle.textContent = btn.textContent;
+        popupContent.innerHTML = "";
+        popup.style.display = "block";
+
+        // Increase progress
+       
+    });
+});
+
+document.querySelectorAll(".topic-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+
+        currentLesson = btn.getAttribute("data-lesson");
+        popupTitle.textContent = btn.textContent;
+        popup.style.display = "block";
+
+        document.getElementById("week-content").innerHTML =
+            "<i>Select a week to view the lesson.</i>";
+
+        // SHOW assessment only if it's an assessment
+        const weekButtons = document.querySelector('.week-buttons');
+        const weekContentEl = document.getElementById('week-content');
+
+        if (currentLesson.includes("ASSESMENT")) {
+            // hide week navigation and lesson box for assessments
+            if (weekButtons) weekButtons.style.display = 'none';
+            if (weekContentEl) weekContentEl.style.display = 'none';
+
+            document.getElementById("assessment-area").style.display = "block";
+            renderAssessment(currentLesson);
+        } else {
+            // show week navigation and lesson box for lessons
+            if (weekButtons) weekButtons.style.display = 'flex';
+            if (weekContentEl) {
+                weekContentEl.style.display = 'block';
+                weekContentEl.innerHTML = "<i>Select a week to view the lesson.</i>";
+            }
+
+            document.getElementById("assessment-area").style.display = "none";
+        }
+    });
+});
+
+
+closeBtn.addEventListener("click", () => {
+    popup.style.display = "none";
+});
+const lessonData = {
+
+    // =======================
+    //        GRADE 11
+    // =======================
+
+    "LESSON 1": {
+        1: "Week 1: Introduction to ICT and understanding its role in daily life.",
+        2: "Week 2: Identifying basic computer components and their functions.",
+        3: "Week 3: Learning safe and proper computer laboratory practices."
+    },
+
+    "LESSON 2": {
+        1: "Week 1: Introduction to Microsoft Word and its basic tools.",
+        2: "Week 2: Formatting text, paragraphs, and documents.",
+        3: "Week 3: Creating simple documents using layout tools."
+    },
+
+    "LESSON 3": {
+        1: "Week 1: Introduction to HTML and basic webpage structure.",
+        2: "Week 2: Using basic tags such as headings, paragraphs, and images.",
+        3: "Week 3: Creating a simple multi-page HTML site."
+    },
+
+    
+
+    // =======================
+    //       CP2 (G11)
+    // =======================
+
+    "CP2 LESSON 1": {
+        1: "Week 1: Introduction to computer systems and hardware.",
+        2: "Week 2: Understanding input and output devices.",
+        3: "Week 3: Overview of storage and memory types."
+    },
+    "CP2 LESSON 2": {
+        1: "Week 1: Introduction to Windows OS and file management.",
+        2: "Week 2: Using folders, directories, and shortcuts.",
+        3: "Week 3: Managing user accounts and system settings."
+    },
+    "CP2 LESSON 3": {
+        1: "Week 1: Basic troubleshooting strategies.",
+        2: "Week 2: Identifying common PC issues.",
+        3: "Week 3: Performing simple hardware checks."
+    },
+   
+
+    // =======================
+    //       CP3 (G11)
+    // =======================
+
+    "CP3 LESSON 1": {
+        1: "Week 1: Introduction to programming logic.",
+        2: "Week 2: Understanding algorithms and flowcharts.",
+        3: "Week 3: Writing simple pseudocode."
+    },
+    "CP3 LESSON 2": {
+        1: "Week 1: Introduction to Python basics.",
+        2: "Week 2: Learning variables and data types.",
+        3: "Week 3: Creating simple input/output programs."
+    },
+    "CP3 LESSON 3": {
+        1: "Week 1: Using conditional statements.",
+        2: "Week 2: Learning loops and iterations.",
+        3: "Week 3: Creating simple logic-based programs."
+    },
+   
+    // =======================
+    //       CP4 (G11)
+    // =======================
+
+    "CP4 LESSON 1": {
+        1: "Week 1: Introduction to networking concepts.",
+        2: "Week 2: Understanding LAN and WAN structures.",
+        3: "Week 3: Identifying networking devices."
+    },
+    "CP4 LESSON 2": {
+        1: "Week 1: Introduction to IP addressing.",
+        2: "Week 2: Understanding subnets and classes.",
+        3: "Week 3: Assigning IP addresses manually."
+    },
+    "CP4 LESSON 3": {
+        1: "Week 1: Introduction to Ethernet cables.",
+        2: "Week 2: Knowing crimping tools.",
+        3: "Week 3: Creating straight-through cables."
+    },
+ 
+
+    // =======================
+    //       Animation 1
+    // =======================
+
+    "AN1 LESSON 1": {
+        1: "Week 1: Introduction to animation and its importance.",
+        2: "Week 2: Understanding frames and timelines.",
+        3: "Week 3: Exploring traditional and digital animation."
+    },
+    "AN1 LESSON 2": {
+        1: "Week 1: Introduction to drawing basics.",
+        2: "Week 2: Understanding proportions and shapes.",
+        3: "Week 3: Sketching basic characters."
+    },
+    "AN1 LESSON 3": {
+        1: "Week 1: Basic movements in animation.",
+        2: "Week 2: Understanding squash and stretch.",
+        3: "Week 3: Creating simple motion sequences."
+    },
+  
+
+    // =======================
+    //       Animation 2
+    // =======================
+
+    "AN2 LESSON 1": {
+        1: "Week 1: Introduction to 2D animation tools.",
+        2: "Week 2: Navigating animation software UI.",
+        3: "Week 3: Creating simple frame-by-frame animation."
+    },
+    "AN2 LESSON 2": {
+        1: "Week 1: Introduction to layers.",
+        2: "Week 2: Using layers for animation effects.",
+        3: "Week 3: Organizing assets using layers."
+    },
+    "AN2 LESSON 3": {
+        1: "Week 1: Introduction to tweening.",
+        2: "Week 2: Using motion tweening.",
+        3: "Week 3: Creating smooth transitions."
+    },
+  
+
+    // =======================
+    //       Animation 3
+    // =======================
+
+    "AN3 LESSON 1": {
+        1: "Week 1: Introduction to 3D modeling.",
+        2: "Week 2: Understanding vertices, edges, and faces.",
+        3: "Week 3: Creating basic 3D objects."
+    },
+    "AN3 LESSON 2": {
+        1: "Week 1: Introduction to texturing.",
+        2: "Week 2: Adding color and materials.",
+        3: "Week 3: Applying simple UV maps."
+    },
+    "AN3 LESSON 3": {
+        1: "Week 1: Introduction to rigging concepts.",
+        2: "Week 2: Adding simple bones.",
+        3: "Week 3: Creating basic character rigs."
+    },
+  
+
+    // =======================
+    //       Animation 4
+    // =======================
+
+    "AN4 LESSON 1": {
+        1: "Week 1: Introduction to animation production pipeline.",
+        2: "Week 2: Understanding pre-production basics.",
+        3: "Week 3: Creating storyboards."
+    },
+    "AN4 LESSON 2": {
+        1: "Week 1: Introduction to editing software.",
+        2: "Week 2: Learning basic cuts and transitions.",
+        3: "Week 3: Adding audio to animation."
+    },
+    "AN4 LESSON 3": {
+        1: "Week 1: Exporting animation files.",
+        2: "Week 2: Understanding file formats.",
+        3: "Week 3: Creating final project exports."
+    },
+    
+};
+let currentLesson = "";
+
+// Detect which LESSON button was pressed
+document.querySelectorAll(".topic-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+        currentLesson = btn.getAttribute("data-lesson");
+document.getElementById("week-content").innerHTML =
+    "<i>Select a week to view the lesson.</i>";
+       
+    });
+});
+
+// Week button click → show week lesson content
+document.querySelectorAll(".week-btn").forEach(button => {
+    button.addEventListener("click", () => {
+       const week = button.getAttribute("data-week")
+
+        if (lessonData[currentLesson] && lessonData[currentLesson][week]) {
+            document.getElementById("week-content").innerHTML =
+                `<b>${currentLesson} - Week ${week}</b><br><br>${lessonData[currentLesson][week]}`;
+        } else {
+            document.getElementById("week-content").innerHTML =
+                "<i>No lesson available for this week.</i>";
+        }
+    });
+});
+
+// QUESTION BANK FOR INDIVIDUAL ASSESSMENTS
+const assessmentQuestions = {
+    "ASSESMENT": [
+        { q: "What does ICT stand for?", options: { a: "Internet Communication Tool", b: "Information and Communication Technology", c: "Integrated Computer Technique" }, answer: "b" },
+        { q: "Which is an input device?", options: { a: "Keyboard", b: "Monitor", c: "Speaker" }, answer: "a" },
+        { q: "HTML is used to?", options: { a: "Design graphics", b: "Store data", c: "Create web pages" }, answer: "c" }
+    ],
+    "CP2 ASSESMENT": [
+        { q: "Which OS concept manages hardware?", options: { a: "Operating System", b: "Application", c: "Driver" }, answer: "a" },
+        { q: "Which is a storage type?", options: { a: "RAM", b: "Hard Drive", c: "GPU" }, answer: "b" }
+    ],
+    "CP3 ASSESMENT": [
+        { q: "What is pseudocode used for?", options: { a: "Design UI", b: "Plan algorithms", c: "Store data" }, answer: "b" }
+    ],
+    "CP4 ASSESMENT": [
+        { q: "What does LAN stand for?", options: { a: "Large Area Network", b: "Local Area Network", c: "Linked Access Node" }, answer: "b" }
+    ],
+    "AN1 ASSESMENT": [
+        { q: "What is a frame in animation?", options: { a: "A single image", b: "A font style", c: "A sound file" }, answer: "a" }
+    ],
+    "AN2 ASSESMENT": [
+        { q: "What does tweening produce?", options: { a: "Still images", b: "Smooth motion", c: "Soundtracks" }, answer: "b" }
+    ],
+    "AN3 ASSESMENT": [
+        { q: "What are vertices part of?", options: { a: "Textures", b: "Mesh geometry", c: "Color palettes" }, answer: "b" }
+    ],
+    "AN4 ASSESMENT": [
+        { q: "What is pre-production?", options: { a: "Final export", b: "Storyboarding and planning", c: "Color grading" }, answer: "b" }
+    ],
+    "DEFAULT": [
+        { q: "Default question: Which letter is first?", options: { a: "A", b: "B", c: "C" }, answer: "a" }
+    ]
+};
+
+// store user's submitted answers per assessment
+const userAnswers = {};
+
+function renderAssessment(key) {
+    const container = document.getElementById('assessment-questions');
+    container.innerHTML = '';
+    const qs = assessmentQuestions[key] || assessmentQuestions['DEFAULT'];
+    qs.forEach((item, idx) => {
+        const qdiv = document.createElement('div');
+        qdiv.className = 'question';
+        qdiv.setAttribute('data-answer', item.answer);
+        qdiv.innerHTML = `${idx + 1}. ${item.q}<br>`;
+        ['a', 'b', 'c'].forEach(letter => {
+            if (item.options[letter]) {
+                qdiv.innerHTML += `<label><input type="radio" name="q${idx + 1}" value="${letter}"> ${item.options[letter]}</label><br>`;
+            }
+        });
+        container.appendChild(qdiv);
+        container.appendChild(document.createElement('br'));
+    });
+    // if user already submitted for this assessment, pre-fill and disable inputs
+    const submitBtnLocal = document.getElementById('submitAssessment');
+    const assessmentResult = document.getElementById('assessment-result');
+    if (userAnswers[key]) {
+        userAnswers[key].forEach((val, idx) => {
+            const radio = container.querySelector(`input[name="q${idx + 1}"][value="${val}"]`);
+            if (radio) radio.checked = true;
+        });
+        // disable inputs and submit button
+        container.querySelectorAll('input[type="radio"]').forEach(i => i.disabled = true);
+        if (submitBtnLocal) submitBtnLocal.disabled = true;
+        if (assessmentResult) assessmentResult.textContent = 'You already completed this assessment.';
+    } else {
+        // ensure inputs enabled and submit active
+        container.querySelectorAll('input[type="radio"]').forEach(i => i.disabled = false);
+        if (submitBtnLocal) submitBtnLocal.disabled = false;
+        if (assessmentResult) assessmentResult.textContent = '';
+    }
+}
+
+// ASSESSMENT SUBMISSION HANDLER
+const submitBtn = document.getElementById('submitAssessment');
+const assessmentResult = document.getElementById('assessment-result');
+
+submitBtn.addEventListener('click', () => {
+    const questions = document.querySelectorAll('#assessment-area .question');
+    let allCorrect = true;
+
+    questions.forEach(q => {
+        const correct = q.getAttribute('data-answer');
+        // find the radio group name inside this question
+        const input = q.querySelector('input[type="radio"]');
+        const name = input ? input.name : null;
+        const selected = name ? document.querySelector(`#assessment-area input[name="${name}"]:checked`) : null;
+        if (!selected || selected.value !== correct) {
+            allCorrect = false;
+        }
+    });
+
+    if (allCorrect) {
+        if (currentLesson) {
+            // save the selected answers so the assessment remains answered
+            const selections = [];
+            const qs = document.querySelectorAll('#assessment-area .question');
+            qs.forEach((q, idx) => {
+                const input = q.querySelector('input[type="radio"]');
+                const name = input ? input.name : null;
+                const selected = name ? document.querySelector(`#assessment-area input[name="${name}"]:checked`) : null;
+                selections.push(selected ? selected.value : null);
+            });
+            userAnswers[currentLesson] = selections;
+
+            completedAssessments.add(currentLesson);
+            // persist changes (user-specific keys)
+            try { localStorage.setItem(userProgressKey('completedAssessments'), JSON.stringify(Array.from(completedAssessments))); } catch (e) {}
+            try { localStorage.setItem(userProgressKey('userAnswers'), JSON.stringify(userAnswers)); } catch (e) {}
+            try { localStorage.setItem(userProgressKey('totalAssessments'), String(TOTAL_ASSESSMENTS)); } catch (e) {}
+
+            updateProgress();
+
+            assessmentResult.textContent = 'All correct! Assessment completed.';
+
+            // Disable only the specific assessment button that opened this popup
+            document.querySelectorAll('.topic-btn').forEach(btn => {
+                if (btn.getAttribute('data-lesson') === currentLesson) {
+                    btn.classList.add('completed-assessment');
+                }
+            });
+
+            // disable inputs and submit so the user can't change answers
+            document.querySelectorAll('#assessment-area input[type="radio"]').forEach(i => i.disabled = true);
+            submitBtn.disabled = true;
+            // reflect persisted state on buttons
+            document.querySelectorAll('.topic-btn').forEach(btn => {
+                if (completedAssessments.has(btn.getAttribute('data-lesson'))) {
+                    btn.classList.add('completed-assessment');
+                }
+            });
+        } else {
+            assessmentResult.textContent = 'All correct!';
+        }
+    } else {
+        assessmentResult.textContent = 'Some answers are incorrect. Please try again.';
+    }
+});
+
+// Initialize progress on load
+// apply completed-assessment class to any already completed
+document.querySelectorAll('.topic-btn').forEach(btn => {
+    if (completedAssessments.has(btn.getAttribute('data-lesson'))) {
+        btn.classList.add('completed-assessment');
+    }
+});
+updateProgress();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ICT Learning Guide</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" type="text/css" href="login.css" />
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+<img src="image/Untitled_design__3_-removebg-preview_2_95(1)(1).png">
+	<h2>Learning Guide for ICT SHS Students </h2>
+</header>
+<p id="message"></p>
+<div class="container">
+    <form class="form-horizontal" onsubmit="checkLogin(event)"> 
+
+        <div class="email-icon">
+            <img src="image/cf4739ab-d036-44ec-8f5f-3c279761d7b6.png.jfif">
+        </div>
+
+        <div class="email">
+            <input type="" class="form-control" id="email" placeholder="EMAIL">
+        </div>
+
+        <div class="password-icon">
+            <img src="image/63ca553e-adea-45f3-9d6b-3b5aef2a9549.png.jfif">
+        </div>
+
+        <div class="password">
+            <input type="password" class="form-control" id="pwd" placeholder="PASSWORD">
+        </div>
+
+        <!-- FORGOT PASSWORD ABOVE LOGIN -->
+        <div class="forgot-pwd">
+            <a href="url">Forgot Password?</a>
+        </div>
+
+        <div class="sign-up">
+            <a href="signin.html">Don't have an account? <u>Sign up</u></a>
+        </div>
+
+        <div class="login-btn">
+            <button type="submit" class="btn-default"><b>LOGIN</b></button>
+        </div>
+      
+    </form>
+</div>
+<script>
+// Load accounts from localStorage and seed defaults if missing
+let accounts = [];
+try { accounts = JSON.parse(localStorage.getItem('accounts') || '[]'); } catch (e) { accounts = []; }
+if (!Array.isArray(accounts) || accounts.length === 0) {
+    accounts = [
+        { username: "grade12@gmail.com", password: "1234", grade: "12" },
+        { username: "grade11@gmail.com", password: "123", grade: "11" }
+    ];
+    try { localStorage.setItem('accounts', JSON.stringify(accounts)); } catch (e) {}
+}
+
+function checkLogin(event) {
+    event.preventDefault();
+    const username = document.getElementById("email").value.trim();
+    const password = document.getElementById("pwd").value.trim();
+    const msg = document.getElementById("message");
+
+    if (username === "" && password === "") {
+        msg.style.color = "red";
+        msg.innerText = "No username or password inputted.";
+        return;
+    }
+    if ((username !== "" && password === "") || (username === "" && password !== "")) {
+        msg.style.color = "red";
+        msg.innerText = "Incomplete input.";
+        return;
+    }
+
+    // reload accounts (in case user registered via signin.html)
+    try { accounts = JSON.parse(localStorage.getItem('accounts') || '[]'); } catch (e) { accounts = []; }
+
+    const foundAccount = accounts.find(acc => acc.username === username && acc.password === password);
+    if (foundAccount) {
+        msg.style.color = "green";
+        msg.innerText = "Login successful! Redirecting...";
+        try {
+            localStorage.setItem('loggedInUser', foundAccount.username);
+            const displayName = foundAccount.username.includes('@')
+                ? foundAccount.username.split('@')[0].replace(/[._]/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
+                : foundAccount.username;
+            localStorage.setItem('displayName', displayName);
+            if (foundAccount.grade) localStorage.setItem('loggedInGrade', foundAccount.grade);
+        } catch (e) {}
+        setTimeout(() => { window.location.href = "main.html"; }, 600);
+    } else {
+        msg.style.color = "red";
+        msg.innerText = "Incorrect username or password.";
+    }
+}
+</script>
+
+</body>
+</html>

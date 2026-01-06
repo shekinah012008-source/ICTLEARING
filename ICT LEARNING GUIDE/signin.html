@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <style>
+        /* Reset default margin/padding */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #237CC4; /* Background color */
+        }
+
+        .container {
+            background: #fff;
+            padding: 30px 25px;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        header img {
+            width: 100px;
+            margin-bottom: 15px;
+        }
+
+        header h2 {
+            margin-bottom: 20px;
+            color: #237CC4;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 12px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        button {
+            background-color: #237CC4;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #1a5c9e;
+        }
+
+        #message {
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        a {
+            color: #237CC4;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="image/Untitled_design__3_-removebg-preview_2_95(1)(1).png" alt="logo">
+            <h2>Create Account</h2>
+        </header>
+
+        <p id="message"></p>
+
+        <form id="signupForm">
+            <input id="email" placeholder="EMAIL" />
+            <input id="pwd" type="password" placeholder="PASSWORD" />
+            <input id="pwd2" type="password" placeholder="CONFIRM PASSWORD" />
+
+            <label style="display:block; margin-bottom:6px; text-align:left;">Grade</label>
+            <select id="grade">
+                <option value="11">Grade 11</option>
+                <option value="12">Grade 12</option>
+            </select>
+
+            <button type="submit">Create Account</button>
+        </form>
+
+        <div style="margin-top:10px;">
+            <a href="login.html">Back to Sign In</a>
+        </div>
+    </div>
+
+    <script>
+    (function(){
+        const msgEl = document.getElementById('message');
+        function showMsg(text, color){ msgEl.style.color = color; msgEl.textContent = text; }
+
+        function loadAccounts(){
+            try { return JSON.parse(localStorage.getItem('accounts') || '[]'); }
+            catch(e){ return []; }
+        }
+
+        function saveAccounts(arr){ try { localStorage.setItem('accounts', JSON.stringify(arr)); } catch(e){} }
+
+        let accounts = loadAccounts();
+        if (!Array.isArray(accounts) || accounts.length === 0) {
+            accounts = [
+                { username: 'grade12@gmail.com', password: '1234', grade: '12' },
+                { username: 'grade11@gmail.com', password: '123', grade: '11' }
+            ];
+            saveAccounts(accounts);
+        }
+
+        document.getElementById('signupForm').addEventListener('submit', function(ev){
+            ev.preventDefault();
+            const email = document.getElementById('email').value.trim();
+            const pwd = document.getElementById('pwd').value.trim();
+            const pwd2 = document.getElementById('pwd2').value.trim();
+            const grade = document.getElementById('grade').value;
+            if(!email || !pwd || !pwd2) { showMsg('Please fill all fields.', 'red'); return; }
+            if(pwd !== pwd2) { showMsg('Passwords do not match.', 'red'); return; }
+
+            accounts = loadAccounts();
+            if (accounts.find(a => a.username === email)) { showMsg('Account already exists for that email.', 'red'); return; }
+
+            const newAcc = { username: email, password: pwd, grade: grade };
+            accounts.push(newAcc);
+            saveAccounts(accounts);
+
+            showMsg('Account created. Redirecting to Sign In...', 'green');
+            setTimeout(()=>{ window.location.href = 'login.html'; }, 900);
+        });
+    })();
+    </script>
+</body>
+</html>

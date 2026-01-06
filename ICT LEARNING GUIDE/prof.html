@@ -1,0 +1,277 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Student Profile</title>
+</head>
+<style>
+    body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #237CC4;
+    color: white;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background: #1e73be;
+    color: white;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    margin-top: 20px;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.profile-card {
+    background: rgba(0, 0, 0, 0.15);
+    width: 400px;
+    margin: 30px auto;
+    padding: 25px;
+    border-radius: 20px;
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border: 5px solid white;
+    border-radius: 50%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+h2 {
+    margin-top: 15px;
+    font-size: 24px;
+}
+
+.progress-box {
+    background: rgba(0, 0, 0, 0.25);
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 15px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 15px;
+    background: white;
+    border-radius: 20px;
+    margin-top: 10px;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 40%; /* progress percentage */
+    background: #2EE5E8;
+    border-radius: 20px;
+}
+
+.subjects-box {
+    background: rgba(0, 0, 0, 0.25);
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 15px;
+    text-align: left;
+}
+
+.subjects-box h3 {
+    margin-bottom: 10px;
+}
+
+.subject {
+    background: white;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.not-done {
+    color: red;
+    font-weight: bold;
+}
+
+.done {
+    color: #2EE5E8;
+    font-weight: bold;
+}
+
+.back-btn {
+    background-color: white;
+    color: #1e73be;
+    padding: 10px 16px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.back-btn:hover {
+    background-color: #e1e1e1;
+}
+.back-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: white;
+    color: #1e73be;
+    padding: 10px 16px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.back-btn:hover {
+    background-color: #e1e1e1;
+}
+.logout-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #ff4b4b;
+    color: white;
+    padding: 10px 16px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.logout-btn:hover {
+    background-color: #d63a3a;
+}
+
+</style>
+<body>
+
+<button class="back-btn" onclick="window.location.href='main.html'">⬅ Back</button>
+
+<h1>Student Profile</h1>
+
+<div class="profile-card">
+    <div class="profile-image">
+        <img src="student.png" alt="Student Photo">
+    </div>
+
+    <h2 id="studentName">Student Name</h2>
+
+    <div class="progress-box">
+        <p>Overall Progress: 40%</p>
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+    </div>
+
+    <div class="subjects-box">
+        <h3>Subjects</h3>
+        <div id="subjectsList"></div>
+    </div>
+</div>
+<button class="logout-btn" onclick="window.location.href='login.html'">Logout</button>
+
+
+<script>
+    // show logged in user name on profile; redirect to login if none
+    (function() {
+        try {
+            const logged = localStorage.getItem('loggedInUser');
+            const display = localStorage.getItem('displayName') || logged;
+            if (!logged) {
+                // no user → redirect to login
+                window.location.href = 'login.html';
+                return;
+            }
+            const el = document.getElementById('studentName');
+            if (el) el.textContent = display;
+        } catch (e) {
+            // ignore
+        }
+
+        // clear stored user on logout click
+        const logoutBtn = document.querySelector('.logout-btn');
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', (ev) => {
+                try {
+                    localStorage.removeItem('loggedInUser');
+                    localStorage.removeItem('displayName');
+                    // do not remove completed progress here — keep progress across logins
+                } catch (e) {}
+                // allow default onclick to run (redirect)
+            });
+        }
+    })();
+</script>
+
+<script>
+    // update overall progress bar from main page data (user-specific)
+    (function() {
+        try {
+            const loggedInUser = localStorage.getItem('loggedInUser') || 'defaultUser';
+            const userProgressKey = (key) => `${key}_${loggedInUser}`;
+            
+            const total = parseInt(localStorage.getItem(userProgressKey('totalAssessments')) || '0', 10) || 0;
+            const completed = JSON.parse(localStorage.getItem(userProgressKey('completedAssessments')) || '[]').length || 0;
+            const percent = total > 0 ? Math.round((completed / total) * 100) : 0;
+            const p = document.querySelector('.progress-box p');
+            if (p) p.textContent = `Overall Progress: ${percent}%`;
+            const fill = document.querySelector('.progress-fill');
+            if (fill) fill.style.width = percent + '%';
+            // Render subjects and mark Done/Not Done based on completedAssessments
+            try {
+                const completedArr = JSON.parse(localStorage.getItem(userProgressKey('completedAssessments')) || '[]');
+                const subjects = [
+                    { name: 'CP1', key: 'ASSESMENT' },
+                    { name: 'CP2', key: 'CP2 ASSESMENT' },
+                    { name: 'CP3', key: 'CP3 ASSESMENT' },
+                    { name: 'CP4', key: 'CP4 ASSESMENT' },
+                    { name: 'Animation 1', key: 'AN1 ASSESMENT' },
+                    { name: 'Animation 2', key: 'AN2 ASSESMENT' },
+                    { name: 'Animation 3', key: 'AN3 ASSESMENT' },
+                    { name: 'Animation 4', key: 'AN4 ASSESMENT' }
+                ];
+                const list = document.getElementById('subjectsList');
+                if (list) {
+                    list.innerHTML = '';
+                    subjects.forEach(s => {
+                        const div = document.createElement('div');
+                        div.className = 'subject';
+                        const nameSpan = document.createElement('span');
+                        nameSpan.textContent = s.name;
+                        const statusSpan = document.createElement('span');
+                        const done = completedArr.includes(s.key);
+                        statusSpan.className = 'status ' + (done ? 'done' : 'not-done');
+                        statusSpan.textContent = done ? 'Done' : 'Not Done';
+                        div.appendChild(nameSpan);
+                        div.appendChild(statusSpan);
+                        list.appendChild(div);
+                    });
+                }
+            } catch (e) {}
+        } catch (e) {}
+    })();
+</script>
+
+</body>
+</html>

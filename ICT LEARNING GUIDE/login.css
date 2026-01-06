@@ -1,0 +1,181 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Google Sans Flex, sans-serif;
+  margin: 0;
+}
+
+/* LOGO */
+.logo-area {
+    width: 300px;
+    text-align: center;
+    flex-shrink: 0;
+	  position: absolute;
+  top: 8%;
+  left: 5%;
+  transform: translate(-50%, -50%); /* perfect centering */
+  width: 150px;
+}
+header img {
+    width: 100px;
+    border-radius: 5%;
+}
+
+/* Style the header */
+header {
+	background-color: #1e43a8;
+	border-bottom-color: #1800ad;
+    padding: 20px;
+    text-align: left;
+    font-size: 35px;
+    color: white;
+    height: 100px;
+	margin: 0;
+    display: flex;            /* Align items horizontally */
+    align-items: center;       /* Center vertically */
+    gap: 20px;   
+	font-family: Google Sans Flex, sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    gap: 20px;
+    flex-wrap: wrap;
+		  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* perfect centering */
+	border: 3px solid #1800ad;
+	width: 400px;
+	height: 350px;
+    border-radius: 5%;
+	    align-items: center;       /* Center vertically */
+}
+.forgot-pwd a {
+    color: #1800ad;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.forgot-pwd a:hover {
+    color: #1d40da;
+   
+}
+.sign-up a {
+    color: #1800ad;
+    font-size: 14px;
+    text-decoration: none;
+    top: 77%;
+    left: 45%;
+}
+.email {
+	 		  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* perfect centering */
+}
+
+#email {
+	width: 230px;
+	height: 32px;
+	margin-left: 30px;
+    border: 2px solid #1800ad;
+    padding: 10px 15px;
+    border-radius: 25px;   /* bigger radius = more rounded */
+	letter-spacing: 1px;
+}
+
+.email-icon img {
+  position: absolute;
+  top: 30%;
+  left: 20%;
+  transform: translate(-50%, -50%); /* perfect centering */
+      width: 30px;
+    border-radius: 5%; 
+}
+
+.password {
+		 		  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* perfect centering */
+}
+
+#pwd {
+	width: 230px;
+	height: 32px;
+	margin-left: 30px;
+    border: 2px solid #1800ad;
+    padding: 10px 15px;
+    border-radius: 25px;   /* bigger radius = more rounded */
+	  letter-spacing: 1px;
+}
+
+.password-icon img {
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  transform: translate(-50%, -50%); /* perfect centering */
+      width: 30px;
+    border-radius: 5%;
+  
+}
+
+.btn-default {
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* perfect centering */
+  background-color: #2c10d9;
+  color: white;
+  height: 40px;
+  width: 130px;
+  border-radius: 5%;
+  font-family: Google Sans Flex, sans-serif;
+  letter-spacing: 1px;
+}
+
+.btn-default:hover {
+        background-color: #322870; /* Darker blue on hover */
+
+    }
+
+a {
+	  font-family: Google Sans Flex, sans-serif;
+	    position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* perfect centering */
+  text-decoration: none;
+}
+
+a:hover{
+	color: #322870;
+	text-decoration: underline;
+} 
+
+	
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media (max-width: 600px) {
+  container,header {
+    width: 100%;
+    height: auto;
+  }
+}
+#message {
+    width: 400px;
+    position: absolute;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 auto;
+    margin-top: 20px;
+    position: relative;
+    top: 70px; 
+    left: 5%;
+     /* moves closer to the box */
+}
